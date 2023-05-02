@@ -5,18 +5,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 
-public class Department implements Serializable{
-	
+public class Department implements Serializable, Comparable<Department> {
+
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String name;
-	
+
 	public Department(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}
-	
-	public Department() {}
+
+	public Department() {
+	}
 
 	public Integer getId() {
 		return id;
@@ -61,5 +62,10 @@ public class Department implements Serializable{
 		dep.setId(rs.getInt("DepartmentId"));
 		dep.setName(rs.getString("DepName"));
 		return dep;
+	}
+
+	@Override
+	public int compareTo(Department o) {
+		return name.compareTo(o.getName());
 	}
 }
