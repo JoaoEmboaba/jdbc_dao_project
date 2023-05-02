@@ -1,6 +1,8 @@
 package model.entities;
 
 import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class Department implements Serializable{
@@ -52,5 +54,12 @@ public class Department implements Serializable{
 	@Override
 	public String toString() {
 		return "Department [id=" + id + ", name=" + name + "]";
+	}
+
+	public static Department instanceDepartment(ResultSet rs) throws SQLException {
+		Department dep = new Department();
+		dep.setId(rs.getInt("DepartmentId"));
+		dep.setName(rs.getString("DepName"));
+		return dep;
 	}
 }
