@@ -39,8 +39,22 @@ public class Program {
 		System.out.println();
 		
 		// Teste com o insert
-		Seller sellerTest = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, dep);
+		Seller sellerTest = new Seller(null, "leonardo", "rita2005@gmail.com", new Date(), 4000.0, dep);
 		sellerDao.insert(sellerTest);
 		System.out.println("Inserted! New id = " + sellerTest.getId());
+		
+		System.out.println();
+		
+		// Teste com o update
+		seller = sellerDao.findById(117);
+		seller.setEmail("blaze@gmail.com");
+		sellerDao.update(seller);
+		System.out.println("Update completed!");
+		
+		System.out.println();
+		
+		// Teste com o delete
+		sellerDao.deleteById(72);
+		System.out.println("Delete completed! id = " + seller.getId());
 	}
 }
