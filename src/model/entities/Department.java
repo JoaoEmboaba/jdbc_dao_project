@@ -10,6 +10,10 @@ public class Department implements Serializable, Comparable<Department> {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String name;
+	
+	public Department(Integer id) {
+		this.id = id;
+	}
 
 	public Department(Integer id, String name) {
 		this.id = id;
